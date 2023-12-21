@@ -1,0 +1,32 @@
+.table-row {
+    padding: 1rem 0.6rem;
+    font-weight: 600;
+}
+
+.table-data {
+    padding: 1rem 0.6rem;
+}
+
+.table-data:last-child {
+    text-align: right;
+}
+
+.table-data:nth-last-child(2) {
+    text-align: right;
+}
+
+.table-data:nth-child(2) {
+    text-align: center;
+}
+
+.table-data:nth-last-child(3) {
+    text-align: center;
+}
+
+.table-row.in {
+    background-color: lightgreen;
+}
+
+.table-row.out {
+    background-color: lightcoral;
+}

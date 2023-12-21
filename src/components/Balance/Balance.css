@@ -1,0 +1,40 @@
+.balance-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    background-color: rgba(255, 204, 255, 0.664);
+    color: purple;
+}
+
+.balance-container {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.balance-container .amount {
+    font-size: 2.25rem;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .balance-section {
+        padding: 2rem 1rem;
+        justify-content: flex-start;
+    }
+    
+    .balance-container {
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    .balance-section {
+        padding: 2rem 3rem;
+        justify-content: flex-start;
+    }
+}
