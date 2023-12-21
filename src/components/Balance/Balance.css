@@ -23,11 +23,18 @@
 
 @media (min-width: 768px) {
     .balance-section {
-        padding: 3rem 1rem;
+        padding: 2rem 1rem;
         justify-content: flex-start;
     }
     
     .balance-container {
         align-items: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    .balance-section {
+        padding: 2rem 3rem;
+        justify-content: flex-start;
     }
 }

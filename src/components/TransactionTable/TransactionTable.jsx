@@ -1,5 +1,6 @@
 import TransactionRow from "../TransactionRow/TransactionRow";
 import './TransactionTable.css';
+import PropTypes from 'prop-types';
 
 const DATA_HEADINGS = [
   "Date",
@@ -173,7 +174,7 @@ const DATA = [
   },
 ];
 
-const removeDuplicateData = (arrayOfObjects) => {
+const removeDuplicateData = (arrayOfObjects, balanceUpdateCallBackFunc) => {
   const tempListOfActivities = [];
   let newArrayOfObject = arrayOfObjects.filter((data) => {
     if (!tempListOfActivities.includes(data.activity_id)) {
@@ -184,10 +185,13 @@ const removeDuplicateData = (arrayOfObjects) => {
   newArrayOfObject = newArrayOfObject.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
+  balanceUpdateCallBackFunc(newArrayOfObject[0].balance);
   return newArrayOfObject;
 };
 
-const TransactionTable = () => {
+const TransactionTable = (props) => {
+  const { updateBalance } = props;
+
   return (
     <div className="past-transaction_section">
       <p className="heading">Past Transactions</p>
@@ -201,7 +205,7 @@ const TransactionTable = () => {
             </tr>
           </thead>
           <tbody className="table-body">
-            {removeDuplicateData(DATA).map((data) => (
+            {removeDuplicateData(DATA, updateBalance).map((data) => (
               <TransactionRow key={data.activity_id} data={data} />
             ))}
           </tbody>
@@ -209,6 +213,10 @@ const TransactionTable = () => {
       </div>
     </div>
   );
+};
+
+TransactionTable.propTypes = {
+  updateBalance: PropTypes.func,
 };
 
 export default TransactionTable;

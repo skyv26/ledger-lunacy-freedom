@@ -26,7 +26,7 @@ const TransactionRow = (props) => {
             <td className="table-data">{type}</td>
             <td className="table-data">
                 {['deposit', 'refund'].includes(type.toLowerCase()) ?
-                    `Deposit from ${data['source']['description'] ?? 'unspecified source' }`
+                    `Deposit from ${data['source']['description'] ?? 'unknown source'} for your investment in ${data['destination']['description'] ?? 'unknown source'}`
                     :
                     `Investment in ${data['destination']['description']}`
                 }

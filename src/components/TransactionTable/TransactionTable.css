@@ -63,6 +63,15 @@
 
 @media (min-width: 1024px) {
     .table-container {
-        height: 19.75rem;
+        height: 24rem;
+    }
+
+    .past-transaction_section .heading {
+        padding: 1rem 3rem;
+    }
+
+    .table-container {
+        width: 94%;
+        margin: auto;
     }
 }

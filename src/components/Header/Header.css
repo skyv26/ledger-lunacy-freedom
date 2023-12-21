@@ -16,3 +16,10 @@
         padding: 2rem 1rem;
     }
 }
+
+@media (min-width: 1024px) {
+    .header {
+        font-size: 1.25rem;
+        padding: 1rem 3rem;
+    }
+}
