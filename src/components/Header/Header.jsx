@@ -1,6 +1,8 @@
+import './Header.css';
+
 const Header = () => {
     return (
-        <header>
+        <header className='header'>
             <a href='.'>Investing Account</a>
         </header>
     );
