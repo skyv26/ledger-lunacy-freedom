@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 const dateFormatter = (date) => {
@@ -18,13 +17,14 @@ const dateFormatter = (date) => {
 const TransactionRow = (props) => {
     const { data } = props;
     const { date, type, amount, balance } = data;
+
     return (
         <tr>
             <td>{dateFormatter(date)}</td>
             <td>{type}</td>
             <td>
-                {type === 'DEPOSIT' ?
-                    `Deposit from ${data['source']['description']}`
+                {['deposit', 'refund'].includes(type.toLowerCase()) ?
+                    `Deposit from ${data['source']['description'] ?? 'unspecified source' }`
                     :
                     `Investment in ${data['destination']['description']}`
                 }
