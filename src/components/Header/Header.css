@@ -1,0 +1,18 @@
+.header {
+    background-color: purple;
+    color: white;
+    padding: 1rem 0.6rem;
+}
+
+.header a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .header {
+        font-size: 1.6rem;
+        padding: 2rem 1rem;
+    }
+}
