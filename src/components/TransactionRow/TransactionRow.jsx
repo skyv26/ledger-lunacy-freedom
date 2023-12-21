@@ -1,17 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const dateFormatter = (date) => {
+    const dateString = date;
+
+// Convert date string to Date object
+    const dateObject = new Date(dateString);
+    const formattedDate = dateObject.toLocaleDateString("en-US", {
+        year: "2-digit",
+        month: "2-digit",
+        day: "2-digit",
+    });
+
+    return formattedDate;
+};
+
 const TransactionRow = (props) => {
     const { data } = props;
     const { date, type, amount, balance } = data;
-    console.log(data);
     return (
         <tr>
-            <td>{date}</td>
+            <td>{dateFormatter(date)}</td>
             <td>{type}</td>
             <td>
                 {type === 'DEPOSIT' ?
-                    `Deposit from ${data['source']['description']} for your investment`
+                    `Deposit from ${data['source']['description']}`
                     :
                     `Investment in ${data['destination']['description']}`
                 }
