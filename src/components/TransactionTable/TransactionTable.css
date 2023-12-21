@@ -1,0 +1,68 @@
+.past-transaction_section {
+    background-color: rgb(182, 182, 182);
+}
+
+.past-transaction_section .heading {
+    padding: 1rem 0.6rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #111;
+}
+
+.table-container {
+    max-width: 100%;
+    height: 31rem;
+    overflow: auto;
+}
+
+.table {
+    width: 100%;
+    min-width: 50rem;
+    overflow-x: auto;
+    border-collapse: collapse;
+}
+
+.thead {
+    width: 100%;
+    background-color: #111;
+    padding: 1rem;
+    color: white;
+}
+
+.table-heading {
+    width: auto;
+    padding: 1rem 0.6rem;
+}
+
+.table-heading:first-child {
+    text-align: left;
+}
+
+.table-heading:last-child {
+    text-align: right;
+}
+
+.table-heading:nth-last-child(2) {
+    text-align: right;
+}
+
+.table-body {
+    width: auto;
+    padding: 1rem 0.6rem;
+}
+
+@media (min-width: 768px) {
+    .table-container {
+        height: 42rem;
+    }
+
+    .table {
+        min-width: unset;
+    }
+}
+
+@media (min-width: 1024px) {
+    .table-container {
+        height: 19.75rem;
+    }
+}

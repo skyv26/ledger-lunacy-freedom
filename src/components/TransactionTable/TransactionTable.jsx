@@ -1,4 +1,5 @@
 import TransactionRow from "../TransactionRow/TransactionRow";
+import './TransactionTable.css';
 
 const DATA_HEADINGS = [
   "Date",
@@ -188,23 +189,25 @@ const removeDuplicateData = (arrayOfObjects) => {
 
 const TransactionTable = () => {
   return (
-    <>
-      <p>Past Transactions</p>
-      <table>
-        <thead>
-          <tr>
-            {DATA_HEADINGS.map((headings, index) => (
-              <th key={`${headings}-${index + 1}`}>{headings}</th>
+    <div className="past-transaction_section">
+      <p className="heading">Past Transactions</p>
+      <div className="table-container">
+        <table className="table">
+          <thead className="thead">
+            <tr className="table-row">
+              {DATA_HEADINGS.map((headings, index) => (
+                <th className="table-heading" key={`${headings}-${index + 1}`}>{headings}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="table-body">
+            {removeDuplicateData(DATA).map((data) => (
+              <TransactionRow key={data.activity_id} data={data} />
             ))}
-          </tr>
-        </thead>
-        <tbody>
-          {removeDuplicateData(DATA).map((data) => (
-            <TransactionRow key={data.activity_id} data={data} />
-          ))}
-        </tbody>
-      </table>
-    </>
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
 

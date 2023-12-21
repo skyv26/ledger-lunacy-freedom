@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './TransactionRow.css';
 
 const dateFormatter = (date) => {
     const dateString = date;
@@ -19,10 +20,11 @@ const TransactionRow = (props) => {
     const { date, type, amount, balance } = data;
 
     return (
-        <tr>
-            <td>{dateFormatter(date)}</td>
-            <td>{type}</td>
-            <td>
+        <>
+        <tr className={`table-row ${['deposit', 'refund'].includes(type.toLowerCase()) ? 'in' : 'out'}`}>
+            <td className="table-data">{dateFormatter(date)}</td>
+            <td className="table-data">{type}</td>
+            <td className="table-data">
                 {['deposit', 'refund'].includes(type.toLowerCase()) ?
                     `Deposit from ${data['source']['description'] ?? 'unspecified source' }`
                     :
@@ -30,9 +32,11 @@ const TransactionRow = (props) => {
                 }
             </td>
 
-            <td>{amount}</td>
-            <td>{balance}</td>
+            <td className="table-data">{` ${amount < 0 ? `-$${Math.abs(amount)}` : `$${amount}` }`}</td>
+            <td className="table-data">${balance}</td>
         </tr>
+        </>
+        
     );
 };
 
