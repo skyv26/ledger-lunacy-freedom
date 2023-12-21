@@ -3,7 +3,8 @@ import './Balance.css';
 import { GlobalStateNum } from '../../App';
 
 const Balance = () => {
-    const balance = useContext(GlobalStateNum);
+    const transaction = useContext(GlobalStateNum);
+    const { balance } = transaction;
     return (
         <div className="balance-section">
             <div className="balance-container">
